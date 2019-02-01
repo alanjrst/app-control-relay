@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TihiroRobotBeer.DeviceControlPage" BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Tarefas" Clicked="Tarefas" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label
+                    x:Name="informacaoDispositivo"
+                    Text="Informações do dispositivo"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="Fill"
+                    YAlign="Start"
+                    XAlign="Start"
+                    />
+            </StackLayout>
+            <StackLayout Margin="10" Padding="10" BackgroundColor="#E2E2E2" >
+                <Label
+                    x:Name="Nome"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"/>
+                <Label
+                    x:Name="Status"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Label
+                    x:Name="TarefaExecutando"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Tarefa:"
+                    FontSize="Large"/>
+
+                <Label
+                    x:Name="TarefaExecutandoNome"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Text=""
+                    FontSize="Large"/>
+                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+
+                    <Label
+                    x:Name="Time"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Text=""
+                    FontSize="Large"/>
+
+                    <Button 
+                    x:Name="BtStop"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Parar" 
+                    Clicked="Stop"></Button>
+
+                    <Button 
+                    x:Name="BtReconnect"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Reconectar" 
+                    Clicked="ConnectDevice"></Button>
+                    
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Padding="10, 10" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label
+                    x:Name="NomeTarefa"
+                    Text="Tarefas"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="Fill"
+                    XAlign="Start"/>
+                </StackLayout>
+                <ListView  x:Name="listViewTarefas" RowHeight="60" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" ItemSelected="ItemSelectedDevice">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" >
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text = "{Binding Nome}" FontSize="22" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40"/>
+                                        <Label Text = "{Binding Descricao}" AbsoluteLayout.LayoutBounds="50, 35, 200, 25"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
